@@ -1,0 +1,131 @@
+@media (min-width: 375px) {
+	.header__footer-info {
+		&::before {
+			display: none;
+		}
+		&-text {
+			position: unset;
+			width: unset;
+			bottom: unset;
+			margin-bottom: 0;
+		}
+	}
+	.country {
+		&__box {
+			width: 300px;
+		}
+	}
+}
+@media (min-width: 576px) {
+	.section {
+		padding: 3.2em 3.2em;
+	}
+	.country {
+		&__footer {
+			&-mobile {
+				display: none;
+			}
+			&-desktop {
+				display: block;
+			}
+		}
+	}
+}
+@media (min-width: 768px) {
+	.section {
+		padding: 4em 3.4em;
+	}
+	.country {
+		&__box {
+			height: 600px;
+			width: 400px;
+			&-title {
+				font-size: 3rem;
+				font-weight: normal;
+			}
+			&-text {
+				font-size: 1.2rem;
+			}
+			&-inputs {
+				padding: 4rem;
+			}
+			&-textarea {
+				padding: 4rem;
+			}
+			&-result-title {
+				font-size: 4rem;
+			}
+			&-result-text {
+				font-size: 1.6rem;
+			}
+		}
+	}
+	ul {
+		font-size: 1.6rem;
+	}
+	.error {
+		bottom: -10rem;
+	}
+}
+@media (min-width: 992px) {
+	.section {
+		padding: 4.4em 3.7em;
+	}
+	.header {
+		&__button {
+			height: 3.8rem;
+		}
+	}
+	.country {
+		&__heading {
+			font-size: 4rem;
+		}
+		&__boxes {
+			flex-direction: row;
+		}
+	}
+	h4 {
+		font-size: 2.2rem;
+	}
+}
+@media (min-width: 1200px) {
+	.country {
+		&__heading {
+			font-size: 4.5rem;
+		}
+		&__boxes {
+			flex-direction: row;
+		}
+		&__button {
+			height: 4rem;
+		}
+		&__box {
+			height: 650px;
+			width: 400px;
+			&-title {
+				font-size: 3.8rem;
+				font-weight: normal;
+			}
+			&-text {
+				font-size: 1.6rem;
+			}
+			&-input {
+				height: 4rem;
+			}
+			&-inputs {
+				padding: 4.8rem;
+			}
+		}
+	}
+	.error {
+		font-size: 1.4rem;
+	}
+	.country__box-first .error {
+		bottom: -1.8rem;
+	}
+}
+@media (min-width: 1400px) {
+	.section {
+		padding: 4.5em 0 3.6em;
+	}
+}

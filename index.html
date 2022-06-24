@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- meta tags -->
+    <meta name="author" content="Kamil Żmudzki" />
+    <meta name="keywords"
+        content="countrypedia, countries, encyclopedia, country, europe, world, geography, API, async, promises" />
+    <meta name="description"
+        content="Countrypedia helps to get detailed information about any country around the world." />
+    <title>Countrypedia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/25933c88a8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/script.js" type="module"></script>
+</head>
+
+<body>
+
+    <header class="section header">
+        <div class="wrapper">
+            <div class="header__heading">
+                <h1 class="header__title"><span class="secondary-color">Country</span>pedia</h1>
+                <p class="header__subtitle">Get detailed information about any country around the world.</p>
+                <a href="#country"><button class="header__button btn">start now!</button></a>
+            </div>
+            <footer class="header__footer footer">
+                <div class="header__footer-social social">
+                    <a href="#"><i class="fab fa-github-square"></i></a>
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="header__footer-info">
+                    <p class="header__footer-info-text">Do you like what you see? <br> Check this country!</p>
+                    <a href="#country-result" class="header__info-btn" id="header__info-btn"><button
+                            class="header__footer-info-btn"><i class="fas fa-question"></i></button></a>
+                </div>
+
+            </footer>
+        </div>
+    </header>
+    <main>
+        <section class="section country">
+            <div class="wrapper">
+                <h2 class="country__heading" id="country">What country do you want to check?</h2>
+                <div class="country__boxes">
+                    <form class="country__box country__box-inputs" id="country-form">
+                        <h3 class="country__box-title">Choose a way!</h3>
+                        <p class="country__box-text">You can search country for two ways.
+                            First way is to search by country name.
+                            Second way is to fill longitude and latitude.</p>
+                        <h4>first way</h4>
+                        <div class="country__box-first">
+                            <label class="country__box-text" for="country">name of the country:</label>
+                            <input class="country__box-input" type="text" id="country-input" placeholder="country...">
+                            <p class="country__box-first-error error" id="first-error"></p>
+                        </div>
+                        <h4>second way</h4>
+                        <div class="country__box-second">
+                            <div class="country__box-latitude">
+                                <label class="country__box-text" for="input">latitude:</label>
+                                <input class="country__box-input" type="number" id="latitude-input"
+                                    placeholder="lat...">
+                                <p class="country__box-second-error error" id="second-error"></p>
+                            </div>
+                            <div class="country__box-longitude">
+                                <label class="country__box-text" for="input">longitude:</label>
+                                <input class="country__box-input" type="number" id="longitude-input"
+                                    placeholder="lng...">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="country__btn btn" id="country__btn">search</button>
+                    </form>
+
+                    <div class="country__box country__box-background">
+                        <div class="country__box country__box-result before-result" id="country-result">
+                            <div class="country__box-img"><img class="country__img" src="./img/flags.jpg"
+                                    alt="several flags of European countries"></div>
+                            <div class="country__box-textarea">
+                                <h3 class="country__box-title country__box-result-title bold">Country</h3>
+                                <p class="country__box-text country__box-result-text bold">fill in the adjacent inputs
+                                    and
+                                    get information about any
+                                    country around the world!</p>
+                                <ul class="country__list country__list-before" id="country__list-before">
+
+                                    <li class="population">population</li>
+                                    <li class="languages">language</li>
+                                    <li class="currencies">currency</li>
+                                    <li class="capital">capital</li>
+                                    <li class="area">area</li>
+                                    <li class="borders">borders</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="country__box-result after-result" id="after-result">
+                            <div class="country__box-img"><img class="country__img" src="./img/flags.jpg"
+                                    alt="several flags of European countries"></div>
+                            <div class="country__box-textarea">
+                                <h3 class="country__box-title country__box-result-title bold">Country</h3>
+                                <p class="country__box-text country__box-result-text bold">fill in the adjacent inputs
+                                    and
+                                    get information about any
+                                    country around the world!</p>
+                                <ul class="country__list country__list-after" id="country__list-after">
+
+                                    <li class="population">population</li>
+                                    <li class="languages">language</li>
+                                    <li class="currencies">currency</li>
+                                    <li class="capital">capital</li>
+                                    <li class="area">area</li>
+                                    <li class="borders">borders</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <footer class="country__footer footer">
+                    <div class="country__footer-social social">
+                        <a href="#"><i class="fab fa-github-square"></i></a>
+                        <a href="#"><i class="fab fa-facebook-square"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                    <div class="country__footer-copyrights">
+                        <p class="country__footer-desktop"> <i class="fas fa-copyright"></i> Designed & Developed by
+                            <span class="bold"> Kamil Żmudzki</span>
+                        </p>
+                        <p class="country__footer-mobile"><i class="fas fa-copyright"></i> Kamil Żmudzki</p>
+                    </div>
+                </footer>
+            </div>
+        </section>
+
+    </main>
+
+
+
+</body>
+
+</html>
