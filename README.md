@@ -1,4 +1,4 @@
-# <p align="center">[Countrypedia](https://zmudzkikamil.github.io/CountryPedia/)</p1>
+# <p align="center"> <ins>[Countrypedia](https://zmudzkikamil.github.io/CountryPedia/)</ins></p>
 Get detailed information about any country around the world.
 By creating this website application I learned:
 - using Adobe XD to create design,
