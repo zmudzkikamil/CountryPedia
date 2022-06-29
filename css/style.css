@@ -456,11 +456,28 @@ ul {
   margin-bottom: 2rem;
 }
 
+ul li {
+  margin-bottom: 0.2rem;
+}
+
 li a {
   color: blue;
   font-style: italic;
   font-weight: bold;
   cursor: pointer;
+}
+
+.li-result {
+  display: none;
+  font-weight: bold;
+}
+
+.colon {
+  font-weight: normal;
+}
+
+.show {
+  display: inline;
 }
 
 @media (min-width: 375px) {

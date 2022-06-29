@@ -15,7 +15,7 @@ const liAfter = document.querySelector('#country__list-after')
 const flagImg = document.querySelectorAll('.country__img')
 const countryTitles = document.querySelectorAll('.country__box-result-title')
 const countryTexts = document.querySelectorAll('.country__box-result-text')
-
+const liResults = document.querySelectorAll('.li-result')
 // TODO: Move to consts.js - done
 
 import { URL_BORDERS, URL_COUNTRY, URL_CORDS, DEFAULT_ERROR } from './consts.js'
@@ -135,37 +135,50 @@ const displayCountryInfo = ({ name, flags, borders, population, continents, lang
 	afterResult.classList.toggle('after-result-rotate')
 
 	const infoToList = element => {
-
+		console.log(population, languages, currencies, capital, area)
 		// Population
 		let peopleNum = population
 		if (peopleNum > 100000) {
-			peopleNum = `${(population / 1000000).toFixed(2)} mln`
+			peopleNum = `${(population / 1000000).toFixed(2)} mln `
 		}
-		element.querySelector('.population').innerHTML = `population: <b>${peopleNum} people</b>`
+		element.querySelector('.population').innerHTML = population != undefined ? `${peopleNum}` : `n/a`
 
 		// Languages
-		element.querySelector('.languages').innerHTML = `languages: <b>${Object.values(languages).join(', ')}</b>`
+		element.querySelector('.languages').innerHTML =
+			languages != undefined ? `${Object.values(languages).join(', ')}` : `n/a`
 
 		// Currencies
-		for (const key in currencies) {
-			element.querySelector('.currencies').innerHTML = `currencies: <b>${Object.values(currencies[key]).join(', ')}</b>`
+		if (currencies == undefined) {
+			element.querySelector('.currencies').innerHTML = `n/a`
+		} else {
+			for (const key in currencies) {
+				element.querySelector('.currencies').innerHTML = `${Object.values(currencies[key]).join(', ')}`
+			}
 		}
 
 		// Capital
-		element.querySelector('.capital').innerHTML = `capital: <b>${capital[0]}</b>`
+		element.querySelector('.capital').innerHTML = capital != undefined ? `${capital[0]}` : `n/a`
 
 		// Area
-		element.querySelector('.area').innerHTML = `area: <b>${area} km<sup>2</sup></b>`
+		element.querySelector('.area').innerHTML = area != undefined ? `${area}` : `n/a`
 
 		// Borders
 		const bordersLi = element.querySelector('.borders')
-		bordersLi.innerHTML = 'borders: '
+		bordersLi.innerHTML = ''
 		if (Array.isArray(borders) && borders.length >= 1) {
 			for (let i = 0; i < borders.length; i++) {
-				bordersLi.innerHTML += `<a onclick="getCountryFromBorders('${borders[i]}')">${borders[i]}</a>, `
+				const el = document.createElement('a')
+				el.dataset.country = borders[i]
+				el.innerHTML = i === borders.length - 1 ? borders[i] : `${borders[i]}, `
+
+				if (i !== borders.length - 1) {
+					el.innerHTML
+				}
+				//el.dataset.border = border[i];
+				bordersLi.appendChild(el)
 			}
 		} else {
-			bordersLi.textContent = 'No neighbours'
+			bordersLi.textContent = 'no neighbours'
 		}
 	}
 	setTimeout(() => {
@@ -180,6 +193,7 @@ const displayCountryInfo = ({ name, flags, borders, population, continents, lang
 		})
 		infoToList(liBefore)
 		infoToList(liAfter)
+		liResults.forEach(result => result.classList.add('show'))
 	}, 200)
 }
 
@@ -205,4 +219,13 @@ longitudeInput.addEventListener('input', handleCordsChange)
 countryInput.addEventListener('input', handleCountryChange)
 infoBtn.addEventListener('click', () => {
 	getCountry(URL_COUNTRY, 'malaysia')
+})
+
+// Handle Borders
+document.getElementById('border-countries').addEventListener('click', e => {
+	if (!e.target.dataset.country) {
+		return
+	}
+
+	getCountryFromBorders(e.target.dataset.country)
 })
